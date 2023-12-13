@@ -9,6 +9,9 @@ export const authOptions = {
         }),
     ],
     secret: process.env.NEXTAUTH_SECRET,
+    pages: {
+        signIn: '/auth/signin'
+    }
 }
 const handler = NextAuth(authOptions);
 export default handler;

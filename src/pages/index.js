@@ -1,5 +1,4 @@
-import { useSession } from "next-auth/react"
-import { signIn, signOut } from "next-auth/react"
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const HomePage = () => {
   const { data: session } = useSession()
