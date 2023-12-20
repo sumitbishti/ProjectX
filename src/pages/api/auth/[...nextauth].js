@@ -16,8 +16,8 @@ export const authOptions = {
         CredentialsProvider({
             name: "Credentials",
             credentials: {
-                username: { label: "Username", type: "text", placeholder: "jsmith" },
-                password: { label: "Password", type: "password" }
+                username: { label: "Username", type: "text", placeholder: "sumit" },
+                password: { label: "Password", type: "password", placeholder: '1234' }
             },
             async authorize(credentials, req) {
                 // Add logic here to look up the user from the credentials supplied
@@ -36,9 +36,9 @@ export const authOptions = {
         })
     ],
     secret: process.env.NEXTAUTH_SECRET,
+    // custom pages for your signin/signout flow
     pages: {
-        signIn: '/auth/signin'
+        // signIn: '/auth/signin'
     }
 }
-const handler = NextAuth(authOptions);
-export default handler;
+export default NextAuth(authOptions);
