@@ -4,8 +4,8 @@ import clientPromise from "../db"
 export const getServerSideProps = async () => {
   try {
     const client = await clientPromise
-    const db = client.db('test');
-    const collection = db.collection('posts')
+    const db = client.db('sample_mflix');
+    const collection = db.collection('movies')
     const docs = await collection.find().toArray();
 
     return {
@@ -24,7 +24,7 @@ export const getServerSideProps = async () => {
 
 const HomePage = ({ isConnected, docs }) => {
   const { data: session } = useSession()
-  console.log(docs)
+  // console.log(docs)
 
   return (
     <div style={{ height: '100vh', display: 'flex' }}>
