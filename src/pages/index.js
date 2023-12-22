@@ -1,17 +1,17 @@
 import { useSession, signIn, signOut } from "next-auth/react"
-import clientPromise from "../db"
+// import clientPromise from "../db" // you can only use this on server code/files, throws error on client side use
 
 export const getServerSideProps = async () => {
   try {
-    const client = await clientPromise
-    const db = client.db('sample_mflix');
-    const collection = db.collection('movies')
-    const docs = await collection.find().toArray();
+    // const client = await clientPromise
+    // const db = client.db('sample_mflix');
+    // const collection = db.collection('movies')
+    // const docs = await collection.find().toArray();
 
     return {
       props: {
         isConnected: true,
-        docs: JSON.parse(JSON.stringify(docs))
+        // docs: JSON.parse(JSON.stringify(docs))
       },
     }
   } catch (e) {
@@ -25,6 +25,17 @@ export const getServerSideProps = async () => {
 const HomePage = ({ isConnected, docs }) => {
   const { data: session } = useSession()
   // console.log(docs)
+
+  const fetchData = async () => {
+    const response = await fetch('http://localhost:3000/api/movies');
+
+    if (!response.ok) {
+      throw new Error("Response was not ok!")
+    }
+
+    const movies = await response.json()
+    console.log(movies)
+  }
 
   return (
     <div style={{ height: '100vh', display: 'flex' }}>
@@ -43,6 +54,7 @@ const HomePage = ({ isConnected, docs }) => {
 
         {session ? (
           <div>
+            <button onClick={() => fetchData()}>Fetch Data</button> <br />
             <button onClick={() => signOut()}>Sign out</button>
           </div>
         ) : (
