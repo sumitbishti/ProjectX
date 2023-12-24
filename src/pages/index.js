@@ -1,12 +1,11 @@
-import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 const HomePage = () => {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
   return (
     <div style={{ height: '100vh', display: 'flex' }}>
       <div style={{ margin: 'auto' }}>
-
         <h1>Hello, {session ? session.user.name : 'User'} </h1>
 
         {session ? (
@@ -16,9 +15,8 @@ const HomePage = () => {
         ) : (
           <button onClick={() => signIn()}>Sign in</button>
         )}
-
       </div>
     </div>
-  )
-}
-export default HomePage
+  );
+};
+export default HomePage;
