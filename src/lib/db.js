@@ -37,22 +37,3 @@ async function connectDB() {
 }
 
 export default connectDB;
-
-// import mongoose from 'mongoose'
-
-// if (!process.env.MONGODB_URI) {
-//     throw new Error('Invalid/Missing environment variable: "MONGODB_URI"')
-// }
-
-// const uri = process.env.MONGODB_URI
-
-// mongoose.connect(uri, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-// })
-
-// const db = mongoose.connection
-// // db.on('error', (error) => { console.error(console, 'Mongo connection error: ') })
-// db.once('open', () => {
-//     console.log('>> Mongo connnection successful.')
-// })
