@@ -1,11 +1,22 @@
 'use client'
-import { useSession } from "next-auth/react"
-import HomePage from "./Homepage"
+import { useSession, signIn, signOut } from "next-auth/react"
 
-export default function Home() {
+export default function HomePage() {
   const { data: session } = useSession()
 
   return (
-    <HomePage />
+    <div style={{ height: '100vh', display: 'flex' }}>
+      <div style={{ margin: 'auto' }}>
+        <h1>Hello, {session ? session.user.name : 'User'} </h1>
+
+        {!session && (
+          <div>
+            <button onClick={() => signIn()}>Sign in</button>
+          </div>
+        )}
+
+        <button onClick={() => signOut()}>Sign out</button>
+      </div>
+    </div>
   )
 }
