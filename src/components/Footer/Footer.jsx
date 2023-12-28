@@ -1,6 +1,10 @@
+import FooterView from './FooterView'
+
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <>
+      <FooterView />
+    </>
   )
 }
 export default Footer

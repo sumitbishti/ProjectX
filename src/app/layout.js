@@ -1,9 +1,11 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import NextAuthSessionProvider from '@/providers/sessionProvider'
-import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import { ScrollToTop } from '../components/ScrollToTop'
+import { Header } from '@/components/Header'
+import { Hero } from '@/components/Hero'
+import { ScrollToTop } from '@/components/ScrollToTop'
+import { Sidebar } from '@/components/Sidebar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,6 +20,8 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <NextAuthSessionProvider>
           <Header />
+          <Sidebar />
+          <Hero />
           {children}
           <ScrollToTop />
           <Footer />

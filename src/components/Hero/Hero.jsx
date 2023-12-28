@@ -1,6 +1,10 @@
+import HeroView from './HeroView'
+
 const Hero = () => {
   return (
-    <div>Hero</div>
+    <>
+      <HeroView />
+    </>
   )
 }
 export default Hero

@@ -1,6 +1,10 @@
+import ScrollToTopView from './ScrollToTopView'
+
 const ScrollToTop = () => {
   return (
-    <div>ScrollToTop</div>
+    <>
+      <ScrollToTopView />
+    </>
   )
 }
 export default ScrollToTop

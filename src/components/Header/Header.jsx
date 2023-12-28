@@ -1,4 +1,10 @@
+import HeaderView from './HeaderView'
+
 const Header = () => {
-  return <div>Header</div>
+  return (
+    <>
+      <HeaderView />
+    </>
+  )
 }
 export default Header
