@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <NextAuthSessionProvider>
           <Header />
-          <Sidebar />
+          <Sidebar /> 
           <Hero />
           {children}
           <ScrollToTop />
