@@ -1,6 +1,8 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import NextAuthSessionProvider from '@/providers/sessionProvider'
+import { Theme } from '@radix-ui/themes'
+import '@radix-ui/themes/styles.css';
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Hero } from '@/components/Hero'
@@ -19,12 +21,14 @@ export default function RootLayout({ children }) {
     <html suppressHydrationWarning lang="en">
       <body className={inter.className}>
         <NextAuthSessionProvider>
-          <Header />
-          <Sidebar /> 
-          <Hero />
-          {children}
-          <ScrollToTop />
-          <Footer />
+          <Theme>
+            <Header />
+            <Sidebar />
+            <Hero />
+            {children}
+            <ScrollToTop />
+            <Footer />
+          </Theme>
         </NextAuthSessionProvider>
       </body>
     </html>

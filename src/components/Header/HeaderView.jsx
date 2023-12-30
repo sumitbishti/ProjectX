@@ -1,4 +1,6 @@
+import { Heading } from '@radix-ui/themes'
+
 const HeaderView = () => {
-  return <div>HeaderView</div>
+  return <Heading>Header View</Heading>
 }
 export default HeaderView
